@@ -9,17 +9,20 @@ import { GetphotoService } from './services/getphoto.service'
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 const appRoutes: Routes = [
   { path: '', component: UserComponent },
   { path: 'about', component: AboutusComponent },
+  { path: 'chat', component: ChatComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    AboutusComponent
+    AboutusComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
