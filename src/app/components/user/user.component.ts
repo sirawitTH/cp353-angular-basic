@@ -16,18 +16,18 @@ interface Photo {
 })
 export class UserComponent implements OnInit {
 
-  private isEditable: boolean = true;
-  private my_name: string;
-  private age: number;
-  private email: string;
-  private address: {
+  isEditable: boolean = true;
+  my_name: string;
+  age: number;
+  email: string;
+  address: {
     street: string,
     city: string,
     province: string,
     postcode: string
   }
-  private skills: string[];
-  private photoList: Photo[];
+  skills: string[];
+  photoList: Photo[];
 
   constructor(private getphotoService: GetphotoService) { }
 
