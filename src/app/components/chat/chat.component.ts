@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { Chat } from '../../models/chat.model';
 import { Observable } from 'rxjs/Observable';
@@ -11,8 +11,9 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ChatComponent implements OnInit {
 
+  @ViewChild('messages') messages: ElementRef;
   private ip: string;
-  items: Observable<Chat[]>
+  items: Observable<Chat[]>;
 
   constructor(private chatService: ChatService) { }
 
@@ -26,6 +27,7 @@ export class ChatComponent implements OnInit {
     if (!val) return;
     const chat = new Chat(this.ip, val.trim(), new Date().getTime());
     this.chatService.send(chat);
+    this.messages.nativeElement.scrollTop = this.messages.nativeElement.scrollHeight;
   }
 
 }

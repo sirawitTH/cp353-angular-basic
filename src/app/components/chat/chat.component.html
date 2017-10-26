@@ -1,5 +1,5 @@
 <div id="chatbox">
-  <div id="messages">
+  <div id="messages" #messages>
     <span style="width: 100%" *ngFor="let item of items | async">
       <b>{{ item.ip }}:</b> {{ item.message }}
       <span style="float: right" title="{{ item.timestamp | date: 'longDate' }}">{{ item.timestamp | date: 'HH:mm' }}</span>
