@@ -1,3 +1,12 @@
-<p>
-  chat works!
-</p>
+<div id="chatbox">
+  <div id="messages">
+    <span style="width: 100%" *ngFor="let item of items | async">
+      <b>{{ item.ip }}:</b> {{ item.message }}
+      <span style="float: right" title="{{ item.timestamp | date: 'longDate' }}">{{ item.timestamp | date: 'HH:mm' }}</span>
+      <hr>
+    </span>
+  </div>
+  <div id="input-box">
+    <input #msg type="text" (keyup.enter)="send(msg.value);msg.value=''">
+  </div>
+</div>
